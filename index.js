@@ -14,7 +14,7 @@ server.get('/', (req, res) => {
 })
 
 server.use('/', routes)
-
-server.listen(process.env.PORT, () => {
-    console.log('Server Running in port ' + process.env.PORT)
+const PORT = 4000
+server.listen(PORT, () => {
+    console.log('Server Running in port ' + PORT)
 })
