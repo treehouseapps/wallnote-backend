@@ -6,7 +6,7 @@ require('dotenv').config()
 server.use(bodyParser.json())
 //server.use(express.json())
 
-const routes = require('./note/route/noteRoutes')
+const routes = require('./route/noteRoutes')
 
 
 server.get('/', (req, res) => {
