@@ -1,5 +1,5 @@
 {
-   "proxy": "http://localhost:4000",
+   "proxy": "https://wallnote-backend.vercel.app",
   "name": "challenge",
   "version": "1.0.0",
   "description": "a lot of things",
