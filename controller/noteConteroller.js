@@ -3,10 +3,8 @@ const noteList = async (req, res) => {
     try {
         const result = await noteModel.find()
         if(result.length < 1){
-            const emptyResult = {title: "Empty", body: "Empty"}
+            console.log(result)
            res.send("<h2><i>Empty Database Results</i></h2>")
-            console.log(emptyResult)
-            res.json(emptyResult)
         }
         res.json(result)
     }
