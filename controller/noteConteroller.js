@@ -77,7 +77,7 @@ const Delete = async (req, res) => {
     try {
         const result = await noteModel.findOneAndDelete({ _id: req.params.id });
         if (result) {
-            return res.redirect("http://localhost:4000/clear");
+            return res.redirect("wallnote-backend.vercel.app/clear");
         } else {
             return res.send("<h2>Data Note Not Found</h2>");
         }
@@ -91,7 +91,7 @@ const noteDelete = async (req, res) => {
     try {
         const result = await noteModel.findOneAndDelete({ _id: req.params.id });
         if (result) {
-            return res.redirect("http://localhost:3000/home");
+            return res.redirect("wallnote-backend.vercel.app/home");
         } else {
             return res.send("<h2>Data Note Not Found</h2>");
         }
