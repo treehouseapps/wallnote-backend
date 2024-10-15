@@ -6,15 +6,16 @@ require('dotenv').config()
 server.use(bodyParser.json())
 //server.use(express.json())
 
-const routes = require('./note/route/noteRoutes')
+const routes = require('./route/noteRoutes')
 
 
 server.get('/', (req, res) => {
-    res.json({ msg: 'Hello World ' })
+    res.send(<h1>hellow orld</h1>)
+   // res.json({ msg: 'Hello World ' })
 })
 
-server.use('/', routes)
-
-server.listen(process.env.PORT, () => {
-    console.log('Server Running in port ' + process.env.PORT)
+//server.use('/', routes)
+const PORT = 4000
+server.listen(PORT, () => {
+    console.log('Server Running in port ' + PORT)
 })
