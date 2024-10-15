@@ -1,15 +1,18 @@
-const noteModel = require("../model/noteModel")
+const noteModel = require("../model/noteModel");
+
 const noteList = async (req, res) => {
     try {
-        const result = await noteModel.find()
-        if(result.length < 1){
-            console.log(result)
-           res.send("<h2><i>Empty Database Results</i></h2>")
+        const result = await noteModel.find();
+        
+        if (result.length < 1) {
+            console.log(result);
+            return res.send("<h2><i>Empty Database Results</i></h2>"); // Return here
         }
-        res.json(result)
-    }
-    catch {
-        res.send("<h2><i>Error getting Database Results</i></h2>")
+        
+        return res.json(result); // Return here as well
+    } catch (err) {
+        console.error(err);
+        return res.send("<h2><i>Error getting Database Results</i></h2>"); // Return here
     }
 }
 const noteLists = async (req, res) => {
