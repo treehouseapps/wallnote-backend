@@ -1,17 +1,27 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
-const db = mongoose.connect(process.env.DBCONNECTION)
-    .then(result => { if (result) { console.log('Database Connected') } })
-    .catch(err => console.log("Database Connection Error : \n\n" + err))
+async function connectToDatabase() {
+    try {
+        const result = await mongoose.connect(process.env.DBCONNECTION);
+        if (result) {
+            console.log('Database Connected');
+        }
+    } catch (err) {
+        console.log("Database Connection Error:\n\n" + err);
+    }
+}
+
+connectToDatabase();
+
 const schema = new mongoose.Schema({
     title: {
-        type: String
+        type: String,
     },
     body: {
-        type: String
-    }
+        type: String,
+    },
+}, { timestamps: true });
 
-}, { timestamps: true })
-const noteModel = new mongoose.model('Notes', schema)
+const noteModel = mongoose.model('Notes', schema);
 
-module.exports = noteModel
+module.exports = noteModel;
