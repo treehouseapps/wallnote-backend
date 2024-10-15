@@ -35,12 +35,13 @@ const noteLists = async (req, res) => {
 const clear = async (req, res) => {
     try {
         const result = await noteModel.find();
-        if (result.length > 2) {
-            const a = 'local/' + result[1]._id;
-            const b = 'local/' + result[2]._id;
-            const c = "<h2><a href='" + a + "'>" + result[1].title + "</a> " + result[1].body + "</h2>";
-            const d = "<h2><a href='" + b + "'>" + result[2].title + "</a> " + result[2].body + "</h2>";
-            return res.send(c + "<br>" + d);
+       if (result.length > 2) {
+            let output = '';
+            result.forEach(note => {
+                const link = 'local/' + note._id;
+                output += `<h2><a href='${link}'>${note.title}</a> ${note.body}</h2><br>`;
+            });
+              return res.send(output);
         } else {
             return res.send("<h2>Results Are Less Than :- 3</h2>");
         }
