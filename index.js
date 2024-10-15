@@ -10,10 +10,11 @@ const routes = require('./route/noteRoutes')
 
 
 server.get('/', (req, res) => {
-    res.json({ msg: 'Hello World ' })
+    res.send(<h1>hellow orld</h1>)
+   // res.json({ msg: 'Hello World ' })
 })
 
-server.use('/', routes)
+//server.use('/', routes)
 const PORT = 4000
 server.listen(PORT, () => {
     console.log('Server Running in port ' + PORT)
