@@ -92,7 +92,7 @@ const noteDelete = async (req, res) => {
     try {
         const result = await noteModel.findOneAndDelete({ _id: req.params.id });
         if (result) {
-            return res.redirect("wallnote-backend.vercel.app/home");
+            return res.redirect("https://wallnote-frontend.vercel.app/home");
         } else {
             return res.send("<h2>Data Note Not Found</h2>");
         }
