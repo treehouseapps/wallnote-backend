@@ -10,9 +10,19 @@ server.use(cors());
 
 const routes = require('./route/noteRoutes')
 
-
+const msg = [
+   { msg: 'Hello World ', },
+   {
+     noteList: '/home',
+     noteLists: '/home/:id',
+     clear: '/clear',
+     noteCreate: '/create',
+     Update: '/update/:id',
+     noteDelete: '/delete/:id',
+     Delete: '/local/:id',
+}]
 server.get('/', (req, res) => {
-   res.json({ msg: 'Hello World ' })
+   res.json(msg)
 })
 
 server.use('/', routes)
